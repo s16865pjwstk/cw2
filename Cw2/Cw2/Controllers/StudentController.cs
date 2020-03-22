@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cw2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,19 @@ namespace Cw2.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        
+        [HttpPost]
+        public IActionResult CreateStudent(Student student)
+        {
+            student.IndexNumber = $"s{new Random().Next(1, 2000)}";
+            return Ok(student);
+        }
+
+        [HttpGet]
+        public string GetStudents (string orderBy)
+        {
+            return $"Kowalski, Malewski, Andrzejewski, sortowanie={orderBy}";
+        }
 
         [HttpGet("{id}")]
         public IActionResult GetStudent(int id)
