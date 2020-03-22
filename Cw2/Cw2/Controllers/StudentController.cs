@@ -20,6 +20,20 @@ namespace Cw2.Controllers
             return Ok(student);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateStudent(int id)
+        {
+            return Ok("Aktualizacja ukończona");
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteStudent(int id)
+        {
+            return Ok("Usuwanie ukończone");
+        }
+
+
         [HttpGet]
         public string GetStudents (string orderBy)
         {
