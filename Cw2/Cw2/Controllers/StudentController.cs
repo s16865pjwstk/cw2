@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Cw2.Models;
@@ -8,11 +9,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cw2.Controllers
 {
+
     [Route("api/students")]
     [ApiController]
     public class StudentController : ControllerBase
     {
+
         
+        
+       private string conString = "Data Source=db-mssql;Initial Catalog=s16865;Integrated Security=True";
+
+
         [HttpPost]
         public IActionResult CreateStudent(Student student)
         {
@@ -35,9 +42,28 @@ namespace Cw2.Controllers
 
 
         [HttpGet]
-        public string GetStudents (string orderBy)
+        public IActionResult GetStudents (string orderBy)
         {
-            return $"Kowalski, Malewski, Andrzejewski, sortowanie={orderBy}";
+            var list = new List<Student>();
+            using (SqlConnection con = new SqlConnection(conString))
+            using (SqlCommand com = new SqlCommand())
+            {
+                com.Connection = con;
+                com.CommandText = "select * from Student";
+                con.Open();
+                SqlDataReader dr = com.ExecuteReader();
+                while(dr.Read())
+                {
+                    var student = new Student
+                    {
+                        FirstName = dr["FirestName"].ToString(),
+                        LastName = dr["LastName"].ToString(),
+                        IndexNumber = dr["IndexNumber"].ToString()
+                    };
+                    list.Add(student);
+                }
+            }
+            return Ok(list);
         }
 
         [HttpGet("{id}")]

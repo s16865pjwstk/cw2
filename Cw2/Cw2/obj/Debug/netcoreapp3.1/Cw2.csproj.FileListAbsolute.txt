@@ -86,8 +86,6 @@ C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\bin\Debug\netcoreapp3.1\ru\Micr
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\obj\Debug\netcoreapp3.1\Cw2.csproj.CoreCompileInputs.cache
-C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\obj\Debug\netcoreapp3.1\Cw2.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\obj\Debug\netcoreapp3.1\Cw2.csproj.CopyComplete
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\obj\Debug\netcoreapp3.1\Cw2.dll
 C:\Users\krtek\Documents\Studia\APBD\cw2\Cw2\Cw2\obj\Debug\netcoreapp3.1\Cw2.pdb
