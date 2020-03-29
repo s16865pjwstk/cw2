@@ -44,21 +44,23 @@ namespace Cw2.Controllers
         [HttpGet]
         public IActionResult GetStudents (string orderBy)
         {
-            var list = new List<Student>();
+            var list = new List<StudentInfoDTO>();
             using (SqlConnection con = new SqlConnection(conString))
             using (SqlCommand com = new SqlCommand())
             {
                 com.Connection = con;
-                com.CommandText = "select * from Student";
+                com.CommandText = "select s.FirstName, s.LastName, s.BirthDate, st.Name, e.Semester from Student s join Enrollment e on e.IdEnrollment = s.IdEnrollment join Studies st on st.IdStudy = e.IdStudy";
                 con.Open();
                 SqlDataReader dr = com.ExecuteReader();
                 while(dr.Read())
                 {
-                    var student = new Student
+                    var student = new StudentInfoDTO
                     {
                         FirstName = dr["FirestName"].ToString(),
                         LastName = dr["LastName"].ToString(),
-                        IndexNumber = dr["IndexNumber"].ToString()
+                        BirthDate = dr["BirthDate"].ToString(),
+                        Name = dr["Name"].ToString(),
+                        Semester = dr["Semester"].ToString()
                     };
                     list.Add(student);
                 }
