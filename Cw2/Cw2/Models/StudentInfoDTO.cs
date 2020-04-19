@@ -20,4 +20,3 @@ namespace Cw2.Models
         public string Semester { get; set; }
     }
 }
-}

@@ -54,19 +54,21 @@ namespace Cw2.Controllers
                 SqlDataReader dr = com.ExecuteReader();
                 while(dr.Read())
                 {
-                    var student = new StudentInfoDTO
+                    var student = new StudentInfoDTO()
                     {
-                        FirstName = dr["FirestName"].ToString(),
+                        FirstName = dr["FirstName"].ToString(),
                         LastName = dr["LastName"].ToString(),
                         BirthDate = dr["BirthDate"].ToString(),
                         Name = dr["Name"].ToString(),
                         Semester = dr["Semester"].ToString()
                     };
                     list.Add(student);
-                }
+                }   
             }
             return Ok(list);
         }
+
+
 
         [HttpGet("{id}")]
         public IActionResult GetStudent(int id)
@@ -80,6 +82,6 @@ namespace Cw2.Controllers
             }
             return NotFound("Nie znaleziono studenta!");
         }
-
+            
     }
 }
